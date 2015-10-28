@@ -35,6 +35,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button clearButton;
     private Button lowerButton;
     private String spinnerString;
+    private Spinner spinner;
 
     private Button reverseCharacters;
     private Button unppercase;
@@ -56,7 +57,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -140,7 +141,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     public void onClick(View v) {
 
         if (v == copyButton){
-            input.setText(input.getText().toString() + spinnerString);
+            input.setText(input.getText().toString() + spinner.getSelectedItem().toString());
         }
         if (v == clearButton){
             input.setText("");
