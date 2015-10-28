@@ -22,7 +22,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
@@ -40,6 +39,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button reverseCharacters;
     private Button unppercase;
     private EditText editText;
+
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -51,12 +51,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         setContentView(R.layout.activity_text_mod);
 
         // set instance variables for our widgets
-        imageView = (ImageView)findViewById(R.id.imageView);
+        imageView = (ImageView) findViewById(R.id.imageView);
 
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // get array of strings
         String[] spinnerNames = getResources().getStringArray(R.array.spinner_names);
         // create adapter with the strings
@@ -75,8 +75,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // loop through, adding one image per string
         for (int i = 0; i < spinnerNames.length; i++) {
             // determine the index; use 0 if out of bounds
-            int id = imageIds2.getResourceId(i,0);
-            if (id == 0) id = imageIds2.getResourceId(0,0);
+            int id = imageIds2.getResourceId(i, 0);
+            if (id == 0) id = imageIds2.getResourceId(0, 0);
             // load the image; add to arraylist
             Bitmap img = BitmapFactory.decodeResource(getResources(), id);
             images.add(img);
@@ -85,33 +85,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
-        editText = (EditText)findViewById(R.id.editText);
+        editText = (EditText) findViewById(R.id.editText);
 
-        reverseCharacters = (Button)findViewById(R.id.button4);
+        reverseCharacters = (Button) findViewById(R.id.button4);
         reverseCharacters.setOnClickListener(this);
 
-        unppercase = (Button)findViewById(R.id.button6);
+        unppercase = (Button) findViewById(R.id.button6);
         unppercase.setOnClickListener(this);
-    }
-
-    public void onClick(View v){
-
-        if(v == reverseCharacters){
-            String original = editText.getText().toString();
-            String reverse = "";
-
-                for (int i = original.length()-1; i >= 0; i--) {
-                reverse = reverse + original.charAt(i);
-                }
-            editText.setText(reverse);
-            }
-
-
-        if(v == unppercase){
-            editText.setText(editText.getText().toString().toUpperCase());
-        }
-
-
         input = (EditText) findViewById(R.id.editText);
         copyButton = (Button) findViewById(R.id.button2);
         copyButton.setOnClickListener(this);
@@ -120,9 +100,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         clearButton.setOnClickListener(this);
         lowerButton = (Button)findViewById(R.id.button7);
         lowerButton.setOnClickListener(this);
-
-
     }
+
+
+
+
+
+
 
     /**
      * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
@@ -163,6 +147,20 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
         if (v == lowerButton){
             input.setText(input.getText().toString().toLowerCase());
+        }
+        if(v == reverseCharacters){
+            String original = editText.getText().toString();
+            String reverse = "";
+
+            for (int i = original.length()-1; i >= 0; i--) {
+                reverse = reverse + original.charAt(i);
+            }
+            editText.setText(reverse);
+        }
+
+
+        if(v == unppercase){
+            editText.setText(editText.getText().toString().toUpperCase());
         }
 
     }
