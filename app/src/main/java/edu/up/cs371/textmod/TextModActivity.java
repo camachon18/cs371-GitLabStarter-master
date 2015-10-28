@@ -16,11 +16,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -28,6 +30,9 @@ public class TextModActivity extends ActionBarActivity {
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
 
+    private Button reverseCharacters;
+    private Button unppercase;
+    private EditText editText;
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
      */
@@ -72,6 +77,33 @@ public class TextModActivity extends ActionBarActivity {
 
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
+
+        editText = (EditText)findViewById(R.id.editText);
+
+        reverseCharacters = (Button)findViewById(R.id.button4);
+        reverseCharacters.setOnClickListener(this);
+
+        unppercase = (Button)findViewById(R.id.button6);
+        unppercase.setOnClickListener(this);
+    }
+
+    public void onClick(View v){
+
+        if(v == reverseCharacters){
+            String original = editText.getText().toString();
+            String reverse = "";
+
+                for (int i = original.length()-1; i >= 0; i--) {
+                reverse = reverse + original.charAt(i);
+                }
+            editText.setText(reverse);
+            }
+
+
+        if(v == unppercase){
+            editText.setText(editText.getText().toString().toUpperCase());
+        }
+
 
     }
 
