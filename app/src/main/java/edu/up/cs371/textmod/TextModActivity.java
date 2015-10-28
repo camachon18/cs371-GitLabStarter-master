@@ -23,12 +23,19 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+
+    private EditText input;
+    private Button copyButton;
+    private Button clearButton;
+    private Button lowerButton;
+    private String spinnerString;
 
     private Button reverseCharacters;
     private Button unppercase;
@@ -105,6 +112,16 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
 
 
+        input = (EditText) findViewById(R.id.editText);
+        copyButton = (Button) findViewById(R.id.button2);
+        copyButton.setOnClickListener(this);
+        spinnerString = spinner.getSelectedItem().toString();
+        clearButton = (Button) findViewById(R.id.button);
+        clearButton.setOnClickListener(this);
+        lowerButton = (Button)findViewById(R.id.button7);
+        lowerButton.setOnClickListener(this);
+
+
     }
 
     /**
@@ -133,6 +150,21 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v == copyButton){
+            input.setText(input.getText().toString() + spinnerString);
+        }
+        if (v == clearButton){
+            input.setText("");
+        }
+        if (v == lowerButton){
+            input.setText(input.getText().toString().toLowerCase());
+        }
+
     }
 
     /**
