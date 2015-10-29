@@ -170,7 +170,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
 
     }
-
+    //remove
     /**
      * class that handles our spinner's selection events
      */
