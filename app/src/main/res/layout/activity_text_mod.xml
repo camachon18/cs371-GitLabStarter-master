@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="#ff1fa7ff"
     tools:context=".TextModActivity">
 
 
@@ -140,6 +140,16 @@
         android:layout_height="0sp"
         android:layout_weight="1"/>
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Remove Spaces"
+        android:id="@+id/button8"
+        android:textSize="@dimen/button_font_size"
+        android:textColor="@color/button_text_color"
+        android:background="@color/button_color"
+        android:layout_gravity="center_horizontal" />
 
     <LinearLayout
         android:orientation="horizontal"

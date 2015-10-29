@@ -37,6 +37,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private String spinnerString;
     private Spinner spinner;
 
+    private Button removeSpaces;
     private Button reverseCharacters;
     private Button unppercase;
     private EditText editText;
@@ -90,6 +91,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         reverseCharacters = (Button) findViewById(R.id.button4);
         reverseCharacters.setOnClickListener(this);
+        removeSpaces = (Button)findViewById(R.id.button8);
+        removeSpaces.setOnClickListener(this);
 
         unppercase = (Button) findViewById(R.id.button6);
         unppercase.setOnClickListener(this);
@@ -158,11 +161,13 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             }
             editText.setText(reverse);
         }
-
-
         if(v == unppercase){
             editText.setText(editText.getText().toString().toUpperCase());
         }
+        if(v == removeSpaces){
+            editText.setText(editText.getText().toString().replace(" ", ""));
+        }
+
 
     }
 
