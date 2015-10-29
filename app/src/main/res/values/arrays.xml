@@ -11,6 +11,8 @@
         <item>@mipmap/vegdahl</item>
         <item>@mipmap/sipe</item>
         <item>@mipmap/pic_of_me</item>
+        <item>@mipmap/sipe</item>
+        <item>@mipmap/pic_of_me</item>//ergerg
     </array>
 
     <string-array name="spinner_names">

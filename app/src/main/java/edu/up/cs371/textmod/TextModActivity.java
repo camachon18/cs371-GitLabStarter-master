@@ -40,6 +40,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     private Button reverseCharacters;
     private Button unppercase;
     private EditText editText;
+    private Button removeButton;
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -101,6 +102,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         clearButton.setOnClickListener(this);
         lowerButton = (Button)findViewById(R.id.button7);
         lowerButton.setOnClickListener(this);
+        removeButton = (Button) findViewById(R.id.button3);
+        removeButton.setOnClickListener(this);
     }
 
 
@@ -162,6 +165,42 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
         if(v == unppercase){
             editText.setText(editText.getText().toString().toUpperCase());
+        }
+
+        if (v == removeButton){
+            editText.setText(editText.getText().toString().replace("`",""));
+            editText.setText(editText.getText().toString().replace("~",""));
+            editText.setText(editText.getText().toString().replace("!",""));
+            editText.setText(editText.getText().toString().replace("@",""));
+            editText.setText(editText.getText().toString().replace("#",""));
+            editText.setText(editText.getText().toString().replace("$",""));
+            editText.setText(editText.getText().toString().replace("%",""));
+            editText.setText(editText.getText().toString().replace("^",""));
+            editText.setText(editText.getText().toString().replace("&",""));
+            editText.setText(editText.getText().toString().replace("*",""));
+            editText.setText(editText.getText().toString().replace("(",""));
+            editText.setText(editText.getText().toString().replace(")",""));
+            editText.setText(editText.getText().toString().replace("-",""));
+            editText.setText(editText.getText().toString().replace("_",""));
+            editText.setText(editText.getText().toString().replace("+",""));
+            editText.setText(editText.getText().toString().replace("=",""));
+            editText.setText(editText.getText().toString().replace("[",""));
+            editText.setText(editText.getText().toString().replace("{",""));
+            editText.setText(editText.getText().toString().replace("]",""));
+            editText.setText(editText.getText().toString().replace("}",""));
+            editText.setText(editText.getText().toString().replace("\\",""));
+            editText.setText(editText.getText().toString().replace("|",""));
+            editText.setText(editText.getText().toString().replace("'",""));
+            editText.setText(editText.getText().toString().replace(";",""));
+            editText.setText(editText.getText().toString().replace(":",""));
+            editText.setText(editText.getText().toString().replace(",",""));
+            editText.setText(editText.getText().toString().replace("<",""));
+            editText.setText(editText.getText().toString().replace(".",""));
+            editText.setText(editText.getText().toString().replace(">",""));
+            editText.setText(editText.getText().toString().replace("?",""));
+            editText.setText(editText.getText().toString().replace("/",""));
+            editText.setText(editText.getText().toString().replace("\"",""));
+
         }
 
     }
